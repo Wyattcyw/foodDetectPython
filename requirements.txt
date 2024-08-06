@@ -1,0 +1,8 @@
+Flask
+io
+PIL
+flask_cors
+ultralytics
+matplotlib.pyplot
+numpy
+Gunicorn
