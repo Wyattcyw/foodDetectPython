@@ -5,5 +5,5 @@ ultralytics
 matplotlib
 numpy
 torch
-base64
+pybase64
 Gunicorn
