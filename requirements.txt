@@ -1,8 +1,7 @@
 Flask
 Pillow
 flask_cors
-torch>=1.8.0
-ultralytics==8.2.74
+ultralytics
 matplotlib
 numpy
 pybase64
