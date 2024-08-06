@@ -2,6 +2,6 @@ Flask
 Pillow
 flask_cors
 ultralytics
-matplotlib.pyplot
+matplotlib
 numpy
 Gunicorn
