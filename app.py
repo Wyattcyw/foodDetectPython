@@ -5,15 +5,19 @@ from flask_cors import CORS
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
 import numpy as np
-# import requests
 
 app = Flask(__name__)
 CORS(app)
+model = YOLO("best.pt")
 
 DETECTION_URL = "/yolov5"
 IMAGE_URL = "/image"
 DATETIME_FORMAT = "%Y-%m-%d_%H-%M-%S-%f"
 file_path = "/static/test.jpg"
+
+@app.route("/", methods=["GET"])
+def get():
+    return("hello world!")
 
 @app.route(DETECTION_URL, methods=["POST"])
 def predict():
@@ -65,6 +69,6 @@ def predict():
     else:
         return jsonify({"error": "No image file uploaded"}), 400  # Explicitly return 400 for bad request
 
-if __name__ == "__main__":
-    model = YOLO("best.pt")
-    app.run(host="0.0.0.0")
+# if __name__ == "__main__":
+#     model = YOLO("best.pt")
+#     app.run(host="0.0.0.0", port=10000)
