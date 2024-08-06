@@ -2,7 +2,6 @@ Flask
 Pillow
 flask_cors
 ultralytics
-PyTorch==2.4.0
 matplotlib
 numpy
 pybase64
