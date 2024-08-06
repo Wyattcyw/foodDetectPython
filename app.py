@@ -5,6 +5,7 @@ from flask_cors import CORS
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
 import numpy as np
+import base64
 
 app = Flask(__name__)
 CORS(app)
@@ -55,20 +56,25 @@ def predict():
             print(resultObject)
         # plt.show()
         # new_image = plt.savefig('my_plot.png')
-        # data = {
-        #     "image": new_image,
-        #     "detections": inferenceResult,
-        # }
-        # # response = requests.post("http://newServiceIDk.com/sdfasf", json=data)
-        # # if response.status_code == 200:
-        # #     return jsonify({"message": "Image processed successfully"})
-        # # else:
-        # #     return jsonify({"error": f"Error processing image: {response.text}"}), 500
-        # return jsonify(data)
-        return jsonify(inferenceResult)
+        # base64_image = pyplot_to_blob(image)
+        my_stringIObytes = io.BytesIO()
+        plt.savefig(my_stringIObytes, format='jpg')
+        my_stringIObytes.seek(0)
+        my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode()
+        data = {
+            "image": my_base64_jpgData,
+            "detections": inferenceResult,
+        }
+        # response = requests.post("http://newServiceIDk.com/sdfasf", json=data)
+        # if response.status_code == 200:
+        #     return jsonify({"message": "Image processed successfully"})
+        # else:
+        #     return jsonify({"error": f"Error processing image: {response.text}"}), 500
+        return data
+        # return jsonify(inferenceResult)
     else:
         return jsonify({"error": "No image file uploaded"}), 400  # Explicitly return 400 for bad request
 
-# if __name__ == "__main__":
-#     model = YOLO("best.pt")
-#     # app.run(host="0.0.0.0")
+if __name__ == "__main__":
+    model = YOLO("best.pt")
+    app.run(host="0.0.0.0", port=5000)

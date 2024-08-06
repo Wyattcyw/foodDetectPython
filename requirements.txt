@@ -4,4 +4,6 @@ flask_cors
 ultralytics
 matplotlib
 numpy
+torch
+base64
 Gunicorn
