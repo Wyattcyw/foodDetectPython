@@ -6,6 +6,9 @@ from ultralytics import YOLO
 import matplotlib.pyplot as plt
 import numpy as np
 import base64
+import torch
+
+torch.set_num_threads(1)
 
 app = Flask(__name__)
 CORS(app)
@@ -75,6 +78,6 @@ def predict():
     else:
         return jsonify({"error": "No image file uploaded"}), 400  # Explicitly return 400 for bad request
 
-if __name__ == "__main__":
-    model = YOLO("best.pt")
-    app.run(host="0.0.0.0", port=5000)
+# if __name__ == "__main__":
+#     model = YOLO("best.pt")
+#     app.run(host="0.0.0.0", port=5000)
