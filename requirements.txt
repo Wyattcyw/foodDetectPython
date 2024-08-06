@@ -1,5 +1,4 @@
 Flask
-io
 PIL
 flask_cors
 ultralytics
