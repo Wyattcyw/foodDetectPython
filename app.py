@@ -6,9 +6,6 @@ from ultralytics import YOLO
 import matplotlib.pyplot as plt
 import numpy as np
 import base64
-import torch
-
-torch.set_num_threads(1)
 
 app = Flask(__name__)
 CORS(app)

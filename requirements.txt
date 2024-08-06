@@ -4,6 +4,5 @@ flask_cors
 ultralytics
 matplotlib
 numpy
-torch == 2.4.0
 pybase64
 Gunicorn
