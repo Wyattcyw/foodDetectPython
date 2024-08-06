@@ -1,6 +1,7 @@
 Flask
 Pillow
 flask_cors
+torch
 ultralytics
 matplotlib
 numpy
