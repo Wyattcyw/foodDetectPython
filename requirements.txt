@@ -1,7 +1,7 @@
 Flask
 Pillow
 flask_cors
-torchvision
+PyTorch
 ultralytics
 matplotlib
 numpy
