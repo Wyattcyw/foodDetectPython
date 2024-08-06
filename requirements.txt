@@ -1,7 +1,7 @@
 Flask
 Pillow
 flask_cors
-Pytorch>=1.8.0
+torch>=1.8.0
 ultralytics==8.2.74
 matplotlib
 numpy
