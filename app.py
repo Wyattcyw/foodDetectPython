@@ -8,7 +8,6 @@ import numpy as np
 
 app = Flask(__name__)
 CORS(app)
-model = YOLO("best.pt")
 
 DETECTION_URL = "/yolov5"
 IMAGE_URL = "/image"
@@ -71,4 +70,4 @@ def predict():
 
 if __name__ == "__main__":
     model = YOLO("best.pt")
-    app.run(host="0.0.0.0")
+    # app.run(host="0.0.0.0")
