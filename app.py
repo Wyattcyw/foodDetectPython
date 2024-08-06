@@ -69,6 +69,6 @@ def predict():
     else:
         return jsonify({"error": "No image file uploaded"}), 400  # Explicitly return 400 for bad request
 
-# if __name__ == "__main__":
-#     model = YOLO("best.pt")
-#     app.run(host="0.0.0.0", port=10000)
+if __name__ == "__main__":
+    model = YOLO("best.pt")
+    app.run(host="0.0.0.0")
