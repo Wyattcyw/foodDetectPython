@@ -50,20 +50,21 @@ def predict():
             resultObject['confs'] = resultObject['confs'].item()
             print(resultObject)
         # plt.show()
-        new_image = plt.savefig('my_plot.png')
-        data = {
-            "image": new_image,
-            "detections": inferenceResult,
-        }
-        # response = requests.post("http://newServiceIDk.com/sdfasf", json=data)
-        # if response.status_code == 200:
-        #     return jsonify({"message": "Image processed successfully"})
-        # else:
-        #     return jsonify({"error": f"Error processing image: {response.text}"}), 500
-        return jsonify(data)
+        # new_image = plt.savefig('my_plot.png')
+        # data = {
+        #     "image": new_image,
+        #     "detections": inferenceResult,
+        # }
+        # # response = requests.post("http://newServiceIDk.com/sdfasf", json=data)
+        # # if response.status_code == 200:
+        # #     return jsonify({"message": "Image processed successfully"})
+        # # else:
+        # #     return jsonify({"error": f"Error processing image: {response.text}"}), 500
+        # return jsonify(data)
+        return jsonify(inferenceResult)
     else:
         return jsonify({"error": "No image file uploaded"}), 400  # Explicitly return 400 for bad request
 
 if __name__ == "__main__":
     model = YOLO("best.pt")
-    # app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0")
